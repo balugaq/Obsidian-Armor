@@ -1,5 +1,10 @@
 package me.jordang8.obsidianarmor;
 
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
@@ -7,21 +12,15 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import io.github.thebusybiscuit.slimefun4.api.SlimefunAddon;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.Objects.SlimefunItem.SlimefunItem;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
-import me.mrCookieSlime.Slimefun.cscorelib2.config.Config;
-import me.mrCookieSlime.Slimefun.cscorelib2.item.CustomItem;
 
 public class Main extends JavaPlugin implements SlimefunAddon {
 // testing
     @Override
     public void onEnable() {
-        ItemStack categoryItem = new CustomItem(Material.OBSIDIAN, "&8黑曜石合金装甲", "", "&a> 单击打开");
+        ItemStack categoryItem = new CustomItemStack(Material.OBSIDIAN, "&8黑曜石合金装甲", "", "&a> 单击打开");
 
         NamespacedKey categoryId = new NamespacedKey(this, "OBSIDIAN_ARMOR");
-        Category category = new Category(categoryId, categoryItem);
+        ItemGroup category = new ItemGroup(categoryId, categoryItem);
         
         
         SlimefunItemStack obs_alloy = new SlimefunItemStack("OBSIDIAN_ALLOY", Material.DIAMOND, "&8黑曜石合金", "&7用于制作黑曜石合金装备");
